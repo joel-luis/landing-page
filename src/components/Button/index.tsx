@@ -5,7 +5,7 @@ import * as S from './styles'
 type Props = {
   children: React.ReactNode
   wide?: boolean
-  href: string
+  href?: string
   withPrice?: boolean
   onClick: () => void
 }
