@@ -1,20 +1,47 @@
 import { gql } from 'graphql-request'
 
 const GET_LANDING_PAGE = gql`
-  query GET_LANDING_PAGE {
-    landingPage {
-      data {
-        attributes {
-          logo {
-            data {
-              attributes {
-                alternativeText
-                url
-              }
-            }
+  fragment imageData on UploadFileEntityResponse {
+    data {
+      attributes {
+        alternativeText
+        url
+      }
+    }
+  }
+
+  fragment logo on LandingPageEntityResponse {
+    data {
+      attributes {
+        logo {
+          ...imageData
+        }
+      }
+    }
+  }
+
+  fragment header on LandingPageEntityResponse {
+    data {
+      attributes {
+        header {
+          title
+          description
+          button {
+            label
+            url
+          }
+          image {
+            ...imageData
           }
         }
       }
+    }
+  }
+
+  query GET_LANDING_PAGE {
+    landingPage {
+      ...logo
+      ...header
     }
   }
 `
