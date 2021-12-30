@@ -72,12 +72,26 @@ const GET_LANDING_PAGE = gql`
     }
   }
 
+  fragment sectionConcepts on LandingPageEntityResponse {
+    data {
+      attributes {
+        sectionConcepts {
+          title
+          concepts {
+            title
+          }
+        }
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
       ...header
       ...sectionAboutProject
       ...sectionTech
+      ...sectionConcepts
     }
   }
 `
