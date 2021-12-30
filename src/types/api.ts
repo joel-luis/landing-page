@@ -1,3 +1,5 @@
+import SectionAgenda from 'components/SectionAgenda'
+
 export type ImageProps = {
   data: {
     attributes: {
@@ -57,6 +59,11 @@ export type SectionModulesProps = {
   modules: Modules[]
 }
 
+export type SectionAgendaProps = {
+  title: string
+  description: string
+}
+
 export type LandingPageProps = {
   logo: ImageProps
   header: HeaderProps
@@ -64,4 +71,5 @@ export type LandingPageProps = {
   sectionTech: SectionTechProps
   sectionConcepts: SectionConceptsProps
   sectionModules: SectionModulesProps
+  sectionAgenda: SectionAgendaProps
 }
