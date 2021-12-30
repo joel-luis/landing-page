@@ -52,11 +52,32 @@ const GET_LANDING_PAGE = gql`
     }
   }
 
+  fragment sectionTech on LandingPageEntityResponse {
+    data {
+      attributes {
+        sectionTech {
+          title
+          techIcons {
+            title
+            icon {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
       ...header
       ...sectionAboutProject
+      ...sectionTech
     }
   }
 `
