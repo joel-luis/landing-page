@@ -111,6 +111,23 @@ const GET_LANDING_PAGE = gql`
     }
   }
 
+  fragment pricingBox on LandingPageEntityResponse {
+    data {
+      attributes {
+        pricingBox {
+          totalPrice
+          numberInstallments
+          priceInstallments
+          benefits
+          button {
+            label
+            url
+          }
+        }
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
@@ -120,6 +137,7 @@ const GET_LANDING_PAGE = gql`
       ...sectionConcepts
       ...sectionModules
       ...sectionAgenda
+      ...pricingBox
     }
   }
 `
