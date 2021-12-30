@@ -1,5 +1,3 @@
-import SectionAgenda from 'components/SectionAgenda'
-
 export type ImageProps = {
   data: {
     attributes: {
@@ -24,6 +22,21 @@ export type Modules = {
   title: string
   subtitle: string
   description: string
+}
+
+export type SocialLink = {
+  title: string
+  url: string
+}
+
+export type Author = {
+  attributes: {
+    photo: ImageProps
+    name: string
+    role: string
+    socialLinks: SocialLink[]
+    description: string
+  }
 }
 
 export type HeaderProps = {
@@ -75,6 +88,13 @@ export type PricingBoxProps = {
   }
 }
 
+export type SectionAboutUsProps = {
+  title: string
+  authors: {
+    data: Author[]
+  }
+}
+
 export type LandingPageProps = {
   logo: ImageProps
   header: HeaderProps
@@ -84,4 +104,5 @@ export type LandingPageProps = {
   sectionModules: SectionModulesProps
   sectionAgenda: SectionAgendaProps
   pricingBox: PricingBoxProps
+  sectionAboutUs: SectionAboutUsProps
 }

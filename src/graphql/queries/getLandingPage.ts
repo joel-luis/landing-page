@@ -128,6 +128,32 @@ const GET_LANDING_PAGE = gql`
     }
   }
 
+  fragment sectionAboutUs on LandingPageEntityResponse {
+    data {
+      attributes {
+        sectionAboutUs {
+          title
+          authors {
+            data {
+              attributes {
+                photo {
+                  ...imageData
+                }
+                name
+                role
+                socialLinks {
+                  title
+                  url
+                }
+                description
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
@@ -138,6 +164,7 @@ const GET_LANDING_PAGE = gql`
       ...sectionModules
       ...sectionAgenda
       ...pricingBox
+      ...sectionAboutUs
     }
   }
 `
