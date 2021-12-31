@@ -154,6 +154,23 @@ const GET_LANDING_PAGE = gql`
     }
   }
 
+  fragment sectionReviews on LandingPageEntityResponse {
+    data {
+      attributes {
+        sectionReviews {
+          title
+          reviews {
+            name
+            text
+            photo {
+              ...imageData
+            }
+          }
+        }
+      }
+    }
+  }
+
   query GET_LANDING_PAGE {
     landingPage {
       ...logo
@@ -165,6 +182,7 @@ const GET_LANDING_PAGE = gql`
       ...sectionAgenda
       ...pricingBox
       ...sectionAboutUs
+      ...sectionReviews
     }
   }
 `
